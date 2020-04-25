@@ -1,0 +1,29 @@
+<!doctype html>
+<html class="" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+
+</head>
+
+<body>
+  <div class="container" m-data="{ count: 0 }">
+
+    <button @click="count++"><span>+</span></button>
+    <button @click="count--"><span>-</span></button>
+    <button @click="count*2"><span>*2</span></button>
+
+    <span m-text="count"></span>
+
+  </div>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
