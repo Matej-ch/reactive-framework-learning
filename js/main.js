@@ -42,7 +42,7 @@ window.Matt = {
                 let event = attribute.name.replace('@','');
 
                 el.addEventListener(event,() => {
-                    eval(`with (this.data) (${attribute.value})`);
+                    new Function('data', `var result; with(data) { result = ${attribute.value} };return result`)(this.data)
                 })
             })
         });
@@ -53,10 +53,13 @@ window.Matt = {
             Array.from(el.attributes).forEach(attribute => {
                 if(!Object.keys(this.directives).includes(attribute.name)) { return }
 
-                this.directives[attribute.name](el,eval(`with (this.data) (${attribute.value})`))
+                this.directives[attribute.name](el,
+                    eval(`with (this.data) (${attribute.value})`)
+                )
             })
         })
     },
+
 
     walkDom(el, callback) {
         callback(el);
