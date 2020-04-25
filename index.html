@@ -18,9 +18,11 @@
 
     <button @click="count++"><span>+</span></button>
     <button @click="count--"><span>-</span></button>
-    <button @click="count*2"><span>*2</span></button>
+    <button @click="count * 2"><span>*2</span></button>
 
     <span m-text="count"></span>
+
+    <div m-show="count > 2" style="font-size: 40px;">This is shown because count is more than 2</div>
 
   </div>
   <script src="js/main.js"></script>
